@@ -34,9 +34,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<!-- 자세한 문법은 타입리프 문서 참고 -->
-						<th:block th:each="player, playerStat : ${ players }">
+
+					<!-- 자세한 문법은 타입리프 문서 참고 -->
+					<th:block th:each="player, playerStat : ${ players }">
+						<tr>
 							<td th:text="${ playerStat.index }"></td>
 							<td th:text="${ player.playerId }"></td>
 							<td th:text="${ player.nickname }"></td>
@@ -46,8 +47,9 @@
 								<a class="btn btn-primary" th:href="@{/player/detail(playerId=${ player.playerId })}"
 									role="button">View</a>
 							</td>
-						</th:block>
-					</tr>
+						</tr>
+					</th:block>
+
 				</tbody>
 			</table>
 		</div>

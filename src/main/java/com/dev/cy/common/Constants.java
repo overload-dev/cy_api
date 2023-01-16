@@ -2,7 +2,7 @@ package com.dev.cy.common;
 
 public class Constants {
 	// api 통신에 필요한 키값, 네오플에서 발급받는다.
-	public static String API_CLIENT = "<Your API Client Key>";
+	public static String API_CLIENT = "r3epXw2Pdd5ELBlbmKcavmfewFRMPrDp";
 
 	public static String REQ_BASE_URL = "https://api.neople.co.kr";
 
