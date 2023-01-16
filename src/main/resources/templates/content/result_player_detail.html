@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default_layout}">
+
+<th:block layout:fragment="head">
+	<title>Spring Boot</title>
+
+	<!--/* css */-->
+	<!--<link th:href="@{/css/common.css}" rel="stylesheet" />-->
+
+	<!-- Bootstrap CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+
+</th:block>
+
+<body>
+	<th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>
+	<div style="height: 50px;"></div>
+	<div layout:fragment="content" class="content">
+		<div class="container">
+			<h2>플레이어 정보</h2>
+			<div class="row">
+				<div class="col-4">playerId</div>
+				<div class="col-8">
+					<span th:text="${playerDetail.playerId}"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">nickname</div>
+				<div class="col-8">
+					<span th:text="${playerDetail.nickname}"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">grade</div>
+				<div class="col-8">
+					<span th:text="${playerDetail.grade}"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">clanName</div>
+				<div class="col-8">
+					<span th:text="${playerDetail.clanName}"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">ratingPoint</div>
+				<div class="col-8">
+					<span th:text="${playerDetail.ratingPoint}"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">maxRatingPoint</div>
+				<div class="col-8">
+					<span th:text="${playerDetail.maxRatingPoint}"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">tierName</div>
+				<div class="col-8">
+					<span th:text="${playerDetail.tierName}"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">records</div>
+				<div class="col-8">
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">gameTypeId</th>
+								<th scope="col">winCount</th>
+								<th scope="col">loseCount</th>
+								<th scope="col">stopCount</th>
+							</tr>
+						</thead>
+						<tbody>
+							<th:bloc th:each="record, recordState : ${playerDetail.records}">
+								<tr>
+									<td th:text="${ recordState.index }"></td>
+									<td th:text="${ record.gameTypeId }"></td>
+									<td th:text="${ record.winCount }"></td>
+									<td th:text="${ record.loseCount }"></td>
+									<td th:text="${ record.stopCount }"></td>
+								</tr>
+							</th:bloc>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
